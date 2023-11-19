@@ -44,6 +44,9 @@ class ConstructorPizzaBarbacoa(Pizza):
     def extra(self) -> None:
         self._product.add("Extra", "Chiles picantes")
 
+    def precio(self) -> None:
+        self._product.add("Precio", 15)
+
 
 class PizzaBarbacoa():
 
@@ -57,3 +60,5 @@ class PizzaBarbacoa():
         print("Pizza parts:")
         for category, element in self.parts.items():
             print(f"{category}: {element}")
+
+    

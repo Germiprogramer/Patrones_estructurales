@@ -3,25 +3,25 @@ from typing import Any
 from Pizza import Pizza
 from abc import ABC, abstractmethod
 
-class ConstructorPizzaCuatroQuesos(Pizza):
+class ConstructorPizzaMargherita(Pizza):
 
     def __init__(self) -> None:
         self.reset()
 
     def reset(self) -> None:
-        self._product = PizzaCuatroQuesos()
+        self._product = PizzaMargherita()
 
     @property
-    def product(self) -> PizzaCuatroQuesos:
+    def product(self) -> PizzaMargherita:
         product = self._product
         self.reset()
         return product
 
-    def pizza(self) -> PizzaCuatroQuesos:
+    def pizza(self) -> PizzaMargherita:
         return self._product
 
     def nombre(self) -> None:
-        self._product.add("Nombre", "Pizza Cuatro Quesos")
+        self._product.add("Nombre", "Pizza Margherita")
 
     def masa(self) -> None:
         self._product.add("Masa", "Masa fina")
@@ -30,25 +30,25 @@ class ConstructorPizzaCuatroQuesos(Pizza):
         self._product.add("Salsa", "Salsa de tomate")
 
     def ingredientes(self) -> None:
-        self._product.add("Ingredientes", "Queso mozzarella, Queso parmesano, Queso azul, Queso de cabra")
+        self._product.add("Ingredientes", "Queso mozzarella, Albahaca fresca")
 
     def coccion(self) -> None:
         self._product.add("Método de cocción", "Horno")
 
     def presentacion(self) -> None:
-        self._product.add("Detalles de presentación", "Pizza Cuatro Quesos")
+        self._product.add("Detalles de presentación", "Pizza Margherita")
 
     def maridaje(self) -> None:
         self._product.add("Maridaje", "Vino tinto")
 
     def extra(self) -> None:
-        self._product.add("Extra", "Aceitunas negras")
+        self._product.add("Extra", "Aceite de oliva")
 
     def precio(self) -> None:
-        self._product.add("Precio", 12)
+        self._product.add("Precio", 15)
 
 
-class PizzaCuatroQuesos():
+class PizzaMargherita():
 
     def __init__(self) -> None:
         self.parts = {}
@@ -60,3 +60,5 @@ class PizzaCuatroQuesos():
         print("Pizza parts:")
         for category, element in self.parts.items():
             print(f"{category}: {element}")
+
+    

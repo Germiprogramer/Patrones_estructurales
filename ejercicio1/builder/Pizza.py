@@ -44,3 +44,7 @@ class Pizza(ABC):
     @abstractmethod
     def extra(self) -> None:
         pass
+
+    @abstractmethod
+    def precio(self) -> None:
+        pass

@@ -3,6 +3,10 @@ from abc import ABC, abstractmethod
 from typing import Any
 from Pizza import Pizza
 from Pizza_Barbacoa import PizzaBarbacoa, ConstructorPizzaBarbacoa
+from Pizza_CuatroQuesos import PizzaCuatroQuesos, ConstructorPizzaCuatroQuesos
+from Pizza_Hawaiana import PizzaHawaiana, ConstructorPizzaHawaiana
+from Pizza_Margherita import PizzaMargherita, ConstructorPizzaMargherita
+from Pizza_Personalizada import PizzaPersonalizada, ConstructorPizzaPersonalizada
 
 class Director:
 
@@ -32,6 +36,7 @@ class Director:
             self.builder.presentacion()
             self.builder.maridaje()
             self.builder.extra()
+            self.builder.precio()
 
 if __name__ == "__main__":
     """
@@ -40,10 +45,12 @@ if __name__ == "__main__":
     builder object.
     """
     director = Director()
-    builder = ConstructorPizzaBarbacoa()
+    builder = ConstructorPizzaCuatroQuesos()
     director.builder = builder
 
     
     director.build()
+
     builder.product.list_parts()
+
 
