@@ -51,6 +51,6 @@ if __name__ == "__main__":
     
     director.build()
 
-    builder.product.list_parts()
+    print(builder.product.parts["Nombre"])
 
 
