@@ -1,0 +1,48 @@
+@startuml diagrama_inicial
+
+class MenuItem {
+  - code: str
+  - name: str
+  - price: float
+  + get_code(): str
+  + get_name(): str
+  + get_price(): float
+}
+
+class Menu {
+  - code: str
+  - name: str
+  - items: List<MenuItem>
+  + add_item(item: MenuItem)
+  + remove_item(item: MenuItem)
+  + calculate_price(): float
+}
+
+class CompositeMenu {
+  - elements: List<Menu>
+  + add_menu(menu: Menu)
+  + remove_menu(menu: Menu)
+  + calculate_price(): float
+}
+
+class PizzaBuilder {
+  + build_dough()
+  + build_sauce()
+  + build_toppings()
+  + build_cheese()
+  + build_size()
+  + build_menu()
+}
+
+class CSVHandler {
+  + save_menu(menu: Menu)
+  + load_menu(code: str): Menu
+}
+
+PizzaBuilder --|> MenuItem
+Menu --|> MenuItem
+CompositeMenu --|> Menu
+
+PizzaBuilder <|-- CustomPizzaBuilder
+
+@enduml
