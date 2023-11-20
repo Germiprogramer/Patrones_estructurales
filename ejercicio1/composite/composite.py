@@ -125,10 +125,22 @@ class CompositeMenuCompuesto(Component):
     def to_csv(self):
         with open("ejercicio1/datos/pedidos.csv", 'a', newline='') as file:
             writer = csv.writer(file)
-            components = []
+            components_list = []
             for menu in self.components:
-                components.append(menu.components.nombre)
-            writer.writerow([self.code, self.nombre, self.discount, components[0], components[1], components[2], components[3]])
+                for elemento in menu.components:
+                    components_list.append(elemento.nombre)
+            print(len(components_list))
+            pizza = ""
+            entrante = ""
+            bebida = ""
+            postre = ""
+            for i in range (0, len(components_list), 4):
+                pizza += components_list[i] + " + "
+                entrante += components_list[i+1] + " + "
+                bebida += components_list[i+2] + " + "
+                postre += components_list[i+3] + " + "
+            #empleamos slicing para eliminar los ultimos 3 caracteres de cada string y añadimos al csv
+            writer.writerow([self.code, self.nombre, self.discount, pizza[:-3], entrante[:-3], bebida[:-3], postre[:-3]])
         
 
 
