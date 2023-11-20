@@ -1,7 +1,10 @@
 from __future__ import annotations
 from typing import Any
-from Pizza import Pizza
 from abc import ABC, abstractmethod
+import sys
+# insertamos la ruta donde se encuentra el directorio de builder
+sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estructurales\ejercicio1\builder")
+from Pizza import Pizza
 
 class ConstructorPizzaPersonalizada(Pizza):
 

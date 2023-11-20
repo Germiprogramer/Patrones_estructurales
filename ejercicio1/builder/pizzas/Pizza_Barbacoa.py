@@ -1,54 +1,59 @@
 from __future__ import annotations
 from typing import Any
-from Pizza import Pizza
 from abc import ABC, abstractmethod
+import sys
+# insertamos la ruta donde se encuentra el directorio de builder
+sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estructurales\ejercicio1\builder")
+from Pizza import Pizza
 
-class ConstructorPizzaMargherita(Pizza):
+
+
+class ConstructorPizzaBarbacoa(Pizza):
 
     def __init__(self) -> None:
         self.reset()
 
     def reset(self) -> None:
-        self._product = PizzaMargherita()
+        self._product = PizzaBarbacoa()
 
     @property
-    def product(self) -> PizzaMargherita:
+    def product(self) -> PizzaBarbacoa:
         product = self._product
         self.reset()
         return product
 
-    def pizza(self) -> PizzaMargherita:
+    def pizza(self) -> PizzaBarbacoa:
         return self._product
 
     def nombre(self) -> None:
-        self._product.add("Nombre", "Pizza Margherita")
+        self._product.add("Nombre", "Pizza Barbacoa")
 
     def masa(self) -> None:
-        self._product.add("Masa", "Masa fina")
+        self._product.add("Masa", "Masa con especias")
 
     def salsa_base(self) -> None:
-        self._product.add("Salsa", "Salsa de tomate")
+        self._product.add("Salsa", "Salsa barbacoa")
 
     def ingredientes(self) -> None:
-        self._product.add("Ingredientes", "Queso mozzarella, Albahaca fresca")
+        self._product.add("Ingredientes", "Queso cheddar, Pollo a la barbacoa, Cebolla roja, Cilantro fresco")
 
     def coccion(self) -> None:
         self._product.add("Método de cocción", "Horno")
 
     def presentacion(self) -> None:
-        self._product.add("Detalles de presentación", "Pizza Margherita")
+        self._product.add("Detalles de presentación", "Pizza Barbacoa")
 
     def maridaje(self) -> None:
-        self._product.add("Maridaje", "Vino tinto")
+        self._product.add("Maridaje", "Cerveza artesanal")
 
     def extra(self) -> None:
-        self._product.add("Extra", "Aceite de oliva")
+        self._product.add("Extra", "Chiles picantes")
 
     def precio(self) -> None:
         self._product.add("Precio", 15)
 
 
-class PizzaMargherita():
+class PizzaBarbacoa():
 
     def __init__(self) -> None:
         self.parts = {}

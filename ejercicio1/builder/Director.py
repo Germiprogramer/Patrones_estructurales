@@ -2,11 +2,12 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any
 from Pizza import Pizza
-from Pizza_Barbacoa import PizzaBarbacoa, ConstructorPizzaBarbacoa
-from Pizza_CuatroQuesos import PizzaCuatroQuesos, ConstructorPizzaCuatroQuesos
-from Pizza_Hawaiana import PizzaHawaiana, ConstructorPizzaHawaiana
-from Pizza_Margherita import PizzaMargherita, ConstructorPizzaMargherita
-from Pizza_Personalizada import PizzaPersonalizada, ConstructorPizzaPersonalizada
+from pizzas.Pizza_Barbacoa import PizzaBarbacoa, ConstructorPizzaBarbacoa
+from pizzas.Pizza_CuatroQuesos import PizzaCuatroQuesos, ConstructorPizzaCuatroQuesos
+from pizzas.Pizza_Hawaiana import PizzaHawaiana, ConstructorPizzaHawaiana
+from pizzas.Pizza_Margherita import PizzaMargherita, ConstructorPizzaMargherita
+from pizzas.Pizza_Personalizada import PizzaPersonalizada, ConstructorPizzaPersonalizada
+from pizzas.Pizza_Infantil import PizzaInfantil, ConstructorPizzaInfantil
 
 class Director:
 
@@ -38,19 +39,37 @@ class Director:
             self.builder.extra()
             self.builder.precio()
 
-if __name__ == "__main__":
-    """
-    The client code creates a builder object, passes it to the director and then
-    initiates the construction process. The end result is retrieved from the
-    builder object.
-    """
+def to_dict(tipo_de_pizza) -> dict:
     director = Director()
-    builder = ConstructorPizzaCuatroQuesos()
+    if tipo_de_pizza == "Pizza Barbacoa":
+        builder = ConstructorPizzaBarbacoa()
+    elif tipo_de_pizza == "Pizza Cuatro Quesos":
+        builder = ConstructorPizzaCuatroQuesos()
+    elif tipo_de_pizza == "Pizza Hawaiana":
+        builder = ConstructorPizzaHawaiana()
+    elif tipo_de_pizza == "Pizza Margherita":
+        builder = ConstructorPizzaMargherita()
+    elif tipo_de_pizza == "Pizza Personalizada":
+        builder = ConstructorPizzaPersonalizada()
+    elif tipo_de_pizza == "Pizza Infantil":
+        builder = ConstructorPizzaInfantil()
+    else:
+        print("Tipo de pizza no reconocido")
+        return None
+
     director.builder = builder
+    director.build()
+    return builder.product.parts
+
+if __name__ == "__main__":
+
+    #pruebame el to_dict
+
+    pizza = to_dict("Pizza Barbacoa")
+    print(pizza)
+
 
     
-    director.build()
-
-    print(builder.product.parts["Nombre"])
+    
 
 
