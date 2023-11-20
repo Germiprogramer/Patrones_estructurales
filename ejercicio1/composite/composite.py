@@ -143,8 +143,6 @@ class CompositeMenuCompuesto(Component):
             writer.writerow([self.code, self.nombre, self.discount, pizza[:-3], entrante[:-3], bebida[:-3], postre[:-3]])
         
 
-
-
 menu_infantil = CompositeMenu(1, "MENU_INFANTIL", discount=0.1)
 menu_infantil.add_component(Pizza_Component("Pizza Infantil"))
 menu_infantil.add_component(Entrante_Component("Patatas fritas", 3.0))
@@ -154,7 +152,6 @@ menu_infantil.add_component(Postre_Component("Helado", 2.0))
 menu_compuesto = CompositeMenuCompuesto(2,"MENU_COMPUESTO", discount=0.1)
 menu_compuesto.add_component(menu_infantil)
 menu_compuesto.add_component(menu_infantil)
-
 
 print(menu_infantil.decir_precio())
 print(menu_compuesto.decir_precio())

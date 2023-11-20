@@ -8,7 +8,7 @@ sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estr
 from Director import Director, to_dict
 from pizzas.Pizza_Barbacoa import ConstructorPizzaBarbacoa, PizzaBarbacoa
 from pizzas.Pizza_Infantil import ConstructorPizzaInfantil, PizzaInfantil
-from pizzas.Pizza_Cuatro_Quesos import ConstructorPizzaCuatroQuesos, PizzaCuatroQuesos
+from pizzas.Pizza_CuatroQuesos import ConstructorPizzaCuatroQuesos, PizzaCuatroQuesos
 from pizzas.Pizza_Hawaiana import ConstructorPizzaHawaiana, PizzaHawaiana
 from pizzas.Pizza_Margherita import ConstructorPizzaMargherita, PizzaMargherita
 from pizzas.Pizza_Personalizada import ConstructorPizzaPersonalizada, PizzaPersonalizada
