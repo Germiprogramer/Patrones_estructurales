@@ -1,3 +1,7 @@
+from __future__ import annotations
+from componentes import Component, Entrante_Component, Bebida_Component, Postre_Component, Pizza_Component
+import csv
+
 class CompositeMenu(Component):
     def __init__(self, code: int, nombre: str, discount: float = 0.0) -> None:
         self.code = code

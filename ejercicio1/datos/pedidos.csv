@@ -20,3 +20,8 @@ id, nombre, descuento, pizza, entrante, bebida, postre
 2,MENU_COMPUESTO,0.1,Pizza Infantil+ Pizza Infantil+ ,Patatas fritas+ Patatas fritas+ ,Refresco+ Refresco+ ,Helado+ Helado+ 
 1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado
 2,MENU_COMPUESTO,0.1,Pizza Infantil + Pizza Infantil,Patatas fritas + Patatas fritas,Refresco + Refresco,Helado + Helado
+1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado
+1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado
+1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado
+4,MENU_CUATRO_QUESOS,0.1,Pizza Cuatro Quesos,Ensalada de Queso,Vino Tinto,Tarta de Queso
+5,MENU_MARGHERITA,0.1,Pizza Margherita,Ensalada de Tomate,Vino Blanco,Tarta de Manzana
