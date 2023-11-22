@@ -53,23 +53,7 @@ class Interfaz_Menu_Ind:
         self.menu_margherita.add_component(Entrante_Component("Ensalada de Tomate", 4.0))
         self.menu_margherita.add_component(Bebida_Component("Vino Blanco", 2.5))
         self.menu_margherita.add_component(Postre_Component("Tarta de Manzana", 3.0))
-        
-        self.menu_infantil_compuesto = CompositeMenuCompuesto(2,"MENU_INFANTIL_COMPUESTO", discount=0.1)
-        self.menu_infantil_compuesto.add_component(self.menu_infantil)
-        self.menu_infantil_compuesto.add_component(self.menu_infantil)
-
-        self.menu_hawaiano_margherita = CompositeMenuCompuesto(6,"MENU_HAWAIANO_MARGHERITA", discount=0.1)
-        self.menu_hawaiano_margherita.add_component(self.menu_hawaiano)
-        self.menu_hawaiano_margherita.add_component(self.menu_margherita)
-
-        self.menu_cuatro_quesos_margherita = CompositeMenuCompuesto(7,"MENU_CUATRO_QUESOS_MARGHERITA", discount=0.1)
-        self.menu_cuatro_quesos_margherita.add_component(self.menu_cuatro_quesos)
-        self.menu_cuatro_quesos_margherita.add_component(self.menu_margherita)
-
-        self.menu_hawaiano_cuatro_quesos = CompositeMenuCompuesto(8,"MENU_HAWAIANO_CUATRO_QUESOS", discount=0.1)
-        self.menu_hawaiano_cuatro_quesos.add_component(self.menu_hawaiano)
-        self.menu_hawaiano_cuatro_quesos.add_component(self.menu_cuatro_quesos)
-
+    
         self.create_gui()
 
     def create_gui(self):

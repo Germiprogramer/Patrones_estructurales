@@ -54,6 +54,23 @@ class Interfaz_Menu_Comp:
         self.menu_margherita.add_component(Bebida_Component("Vino Blanco", 2.5))
         self.menu_margherita.add_component(Postre_Component("Tarta de Manzana", 3.0))
         
+        self.menu_infantil_compuesto = CompositeMenuCompuesto(2,"MENU_INFANTIL_COMPUESTO", discount=0.1)
+        self.menu_infantil_compuesto.add_component(self.menu_infantil)
+        self.menu_infantil_compuesto.add_component(self.menu_infantil)
+
+        self.menu_hawaiano_margherita = CompositeMenuCompuesto(6,"MENU_HAWAIANO_MARGHERITA", discount=0.1)
+        self.menu_hawaiano_margherita.add_component(self.menu_hawaiano)
+        self.menu_hawaiano_margherita.add_component(self.menu_margherita)
+
+        self.menu_cuatro_quesos_margherita = CompositeMenuCompuesto(7,"MENU_CUATRO_QUESOS_MARGHERITA", discount=0.1)
+        self.menu_cuatro_quesos_margherita.add_component(self.menu_cuatro_quesos)
+        self.menu_cuatro_quesos_margherita.add_component(self.menu_margherita)
+
+        self.menu_hawaiano_cuatro_quesos = CompositeMenuCompuesto(8,"MENU_HAWAIANO_CUATRO_QUESOS", discount=0.1)
+        self.menu_hawaiano_cuatro_quesos.add_component(self.menu_hawaiano)
+        self.menu_hawaiano_cuatro_quesos.add_component(self.menu_cuatro_quesos)
+
+
         self.create_gui()
 
     def create_gui(self):
@@ -62,39 +79,40 @@ class Interfaz_Menu_Comp:
         label.pack(pady=10)
 
         # Botón para pedir el menú infantil
-        button_menu_infantil = tk.Button(self.master, text="Pedir Menú Infantil", command=self.pedir_menu_infantil)
+        button_menu_infantil = tk.Button(self.master, text="Combo Infantil", command=self.pedir_menu_infantil_doble)
         button_menu_infantil.pack(pady=5)
 
         # Botón para pedir el menú hawaiano
-        button_menu_compuesto = tk.Button(self.master, text="Pedir Menú Hawaiano", command=self.pedir_menu_hawaiano)
+        button_menu_compuesto = tk.Button(self.master, text="Combo Flor Exótica", command=self.pedir_menu_hawaiano_margherita)
         button_menu_compuesto.pack(pady=5)
 
         # Botón para pedir el menú cuatro quesos
-        button_menu_compuesto = tk.Button(self.master, text="Pedir Menú Cuatro Quesos", command=self.pedir_menu_cuatro_quesos)
+        button_menu_compuesto = tk.Button(self.master, text="Combo Queso de la Pradera", command=self.pedir_menu_cuatro_quesos_margherita)
         button_menu_compuesto.pack(pady=5)
 
         # Botón para pedir el menú margherita
-        button_menu_compuesto = tk.Button(self.master, text="Pedir Menú Margherita", command=self.pedir_menu_margherita)
+        button_menu_compuesto = tk.Button(self.master, text="Pedir Lácteo Isleño", command=self.pedir_menu_hawaiano_cuatro_quesos)
         button_menu_compuesto.pack(pady=5)
 
-    def pedir_menu_infantil(self):
-        precio = self.menu_infantil.decir_precio()
-        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Infantil. Precio: ${precio}")
-        self.menu_infantil.to_csv()
+    def pedir_menu_infantil_doble(self):
+        precio = self.menu_infantil_compuesto.decir_precio()
+        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Infantil Doble. Precio: ${precio}")
+        self.menu_infantil_compuesto.to_csv()
 
-    def pedir_menu_hawaiano(self):
-        precio = self.menu_hawaiano.decir_precio()
-        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Hawaiano. Precio: ${precio}")
-        self.menu_hawaiano.to_csv()
+    def pedir_menu_hawaiano_margherita(self):
+        precio = self.menu_hawaiano_margherita.decir_precio()
+        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Hawaiano Margherita. Precio: ${precio}")
+        self.menu_hawaiano_margherita.to_csv()
+
+    def pedir_menu_cuatro_quesos_margherita(self):
+        precio = self.menu_cuatro_quesos_margherita.decir_precio()
+        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Cuatro Quesos Margherita. Precio: ${precio}")
+        self.menu_cuatro_quesos_margherita.to_csv()
+
+    def pedir_menu_hawaiano_cuatro_quesos(self):
+        precio = self.menu_hawaiano_cuatro_quesos.decir_precio()
+        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Hawaiano Cuatro Quesos. Precio: ${precio}")
+        self.menu_hawaiano_cuatro_quesos.to_csv()
     
-    def pedir_menu_cuatro_quesos(self):
-        precio = self.menu_cuatro_quesos.decir_precio()
-        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Cuatro Quesos. Precio: ${precio}")
-        self.menu_cuatro_quesos.to_csv()
-    
-    def pedir_menu_margherita(self):
-        precio = self.menu_margherita.decir_precio()
-        messagebox.showinfo("Pedido Realizado", f"Has pedido el Menú Margherita. Precio: ${precio}")
-        self.menu_margherita.to_csv()
 
 

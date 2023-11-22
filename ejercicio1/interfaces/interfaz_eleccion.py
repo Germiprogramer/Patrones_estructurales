@@ -3,6 +3,8 @@ import csv
 from tkinter import messagebox
 import pandas as pd
 from interfaz_menu_ind import Interfaz_Menu_Ind
+from interfaz_menu_comp import Interfaz_Menu_Comp
+from interfaz_personalizada import Interfaz_Menu_Pers
 
 # Función para que el usuario pueda elegir entre una pizza del menú o una personalizada
 def interfaz_eleccion():
@@ -54,13 +56,22 @@ def interfaz_eleccion():
         messagebox.showinfo("Opción Seleccionada", "Has seleccionado: Menú Combo")
         options_window.destroy()  # Cerrar la ventana de opciones
 
-        interfaz_personalizada()
+        root = tk.Tk()
+        Interfaz_Menu_Comp(root)
     
     # Crear y colocar widgets para la recomendación de pizza
     label_usuario = tk.Label(options_window, text="Usuario:")
     label_usuario.pack(pady=10)
     entry_usuario = tk.Entry(options_window, width=30)
     entry_usuario.pack(pady=10)
+
+    def personalizada():
+        messagebox.showinfo("Opción Seleccionada", "Has seleccionado: Menú Personalizado")
+        options_window.destroy()
+
+        root = tk.Tk()
+        Interfaz_Menu_Pers(root)
+
     '''
     recomendar_button = tk.Button(options_window, text="Obtener Recomendación", command=hacer_recomendacion)
     recomendar_button.pack(pady=10)
@@ -74,6 +85,9 @@ def interfaz_eleccion():
     
     custom_button = tk.Button(options_window, text="Menú Combo", command=combo)
     custom_button.pack(pady=10)
+
+    personalizada_button = tk.Button(options_window, text="Menú Personalizado", command=personalizada)
+    personalizada_button.pack(pady=10)
 
     # Mostrar la ventana de opciones
     options_window.mainloop()

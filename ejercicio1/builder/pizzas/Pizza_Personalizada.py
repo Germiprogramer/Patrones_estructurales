@@ -8,8 +8,17 @@ from Pizza import Pizza
 
 class ConstructorPizzaPersonalizada(Pizza):
 
-    def __init__(self) -> None:
+    def __init__(self, nombre, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extra) -> None:
+        self.nombre = nombre
+        self.masa = masa
+        self.salsa_base = salsa_base
+        self.ingredientes = ingredientes
+        self.coccion = coccion
+        self.presentacion = presentacion
+        self.maridaje = maridaje
+        self.extra = extra
         self.reset()
+
 
     def reset(self) -> None:
         self._product = PizzaPersonalizada()
@@ -24,29 +33,29 @@ class ConstructorPizzaPersonalizada(Pizza):
         return self._product
 
     def nombre(self) -> None:
-        nombre = input("Ingrese el nombre de la pizza: ")
-        self._product.add("Nombre", str(nombre))
+        
+        self._product.add("Nombre", self.nombre)
         
 
     def masa(self) -> None:
-        masa = str(input("Elige el tipo de masa (fina, normal, gruesa): "))
+        masa = self.masa
         if masa == "fina" or masa == "normal" or masa == "gruesa":
             self._product.add("Masa", masa)
         else:
-            print("Tipo de masa no válido")
+            self._product.add("Masa", "masa base")
             self.masa()
         
 
     def salsa_base(self) -> None:
-        salsa = str(input("Elige el tipo de salsa (tomate, barbacoa, pesto): "))
+        salsa = self.salsa_base
         if salsa == "tomate" or salsa == "barbacoa" or salsa == "pesto":
             self._product.add("Salsa", salsa)
         else:
-            print("Tipo de salsa no válido")
+            self._product.add("Salsa", "ninguna")
             self.salsa_base()
-
+    #queda por corregir esta funcion
     def ingredientes(self) -> None:
-        ingredientes = str(input("Elige los ingredientes (queso, jamón, piña, pollo, cebolla, cilantro, chiles, aceitunas, albahaca): "))
+        ingredientes = self.ingredientes
         if ingredientes == "queso" or ingredientes == "jamón" or ingredientes == "piña" or ingredientes == "pollo" or ingredientes == "cebolla" or ingredientes == "cilantro" or ingredientes == "chiles" or ingredientes == "aceitunas" or ingredientes == "albahaca":
             self._product.add("Ingredientes", ingredientes)
         else:
@@ -54,30 +63,30 @@ class ConstructorPizzaPersonalizada(Pizza):
             self.ingredientes()
 
     def coccion(self) -> None:
-        coccion = str(input("Elige el método de cocción (horno, parrilla, sartén): "))
+        coccion = self.coccion
         if coccion == "horno" or coccion == "parrilla" or coccion == "sartén":
             self._product.add("Método de cocción", coccion)
         else:
-            print("Método de cocción no válido")
+            self._product.add("Método de cocción", "horno")
             self.coccion()
 
     def presentacion(self) -> None:
         self._product.add("Detalles de presentación", "Pizza personalizada")
 
     def maridaje(self) -> None:
-        maridaje = str(input("Elige el maridaje (vino tinto, vino blanco, cerveza artesanal): "))
+        maridaje = self.maridaje
         if maridaje == "vino tinto" or maridaje == "vino blanco" or maridaje == "cerveza artesanal":
             self._product.add("Maridaje", maridaje)
         else:
-            print("Maridaje no válido")
+            self._product.add("Maridaje", "ninguno")
             self.maridaje()
 
     def extra(self) -> None:
-        extra = str(input("Elige el extra (aceite de oliva, aceitunas negras, chiles picantes): "))
+        extra = self.extra
         if extra == "aceite de oliva" or extra == "aceitunas negras" or extra == "chiles picantes":
             self._product.add("Extra", extra)
         else:
-            print("Extra no válido")
+            self._product.add("Extra", "ninguno")
             self.extra()
 
     def precio(self) -> None:

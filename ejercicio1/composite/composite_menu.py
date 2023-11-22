@@ -21,13 +21,28 @@ class CompositeMenu(Component):
         discounted_price = round(discounted_price, 2)
         return discounted_price
 
+    def get_last_id_pedido(self):
+            try:
+                with open("ejercicio1/datos/pedidos.csv", 'r') as file:
+                    reader = csv.reader(file)
+                    # Leer el último ID_pedido
+                    last_row = list(reader)[-1]
+                    last_id_pedido = int(last_row[-1])
+                    return last_id_pedido
+            except FileNotFoundError:
+                # Si el archivo no existe, devolver 0
+                return 
+            except ValueError:
+                return 0
+
     def to_csv(self):
+        last_id_pedido = self.get_last_id_pedido()
         with open("ejercicio1/datos/pedidos.csv", 'a', newline='') as file:
             writer = csv.writer(file)
             components = []
             for component in self.components:
                 components.append(component.nombre)
-            writer.writerow([self.code, self.nombre, self.discount, components[0], components[1], components[2], components[3]])
+            writer.writerow([self.code, self.nombre, self.discount, components[0], components[1], components[2], components[3], last_id_pedido + 1])
 
 class CompositeMenuCompuesto(Component):
     def __init__(self, code: int, nombre: str, discount: float = 0.0) -> None:
@@ -48,24 +63,26 @@ class CompositeMenuCompuesto(Component):
         discounted_price = round(discounted_price, 2)
         return discounted_price
 
+    def get_last_id_pedido(self):
+            try:
+                with open("ejercicio1/datos/pedidos.csv", 'r') as file:
+                    reader = csv.reader(file)
+                    # Leer el último ID_pedido
+                    last_row = list(reader)[-1]
+                    last_id_pedido = int(last_row[-1])
+                    return last_id_pedido
+            except FileNotFoundError:
+                # Si el archivo no existe, devolver 0
+                return 0
+
     def to_csv(self):
+        last_id_pedido = self.get_last_id_pedido()
         with open("ejercicio1/datos/pedidos.csv", 'a', newline='') as file:
             writer = csv.writer(file)
             components_list = []
             for menu in self.components:
                 for elemento in menu.components:
-                    components_list.append(elemento.nombre)
-            print(len(components_list))
-            pizza = ""
-            entrante = ""
-            bebida = ""
-            postre = ""
+                    components_list.append(elemento.nombre)    
             for i in range (0, len(components_list), 4):
-                pizza += components_list[i] + " + "
-                entrante += components_list[i+1] + " + "
-                bebida += components_list[i+2] + " + "
-                postre += components_list[i+3] + " + "
             #empleamos slicing para eliminar los ultimos 3 caracteres de cada string y añadimos al csv
-            writer.writerow([self.code, self.nombre, self.discount, pizza[:-3], entrante[:-3], bebida[:-3], postre[:-3]])
-        
-
+                writer.writerow([self.code, self.nombre, self.discount, components_list[i], components_list[i+1], components_list[i+2], components_list[i+3], last_id_pedido + 1])

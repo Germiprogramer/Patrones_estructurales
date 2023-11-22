@@ -27,7 +27,7 @@ def interfaz_registro():
 
         messagebox.showinfo("Registro Exitoso", "Usuario registrado con éxito")
         root.destroy()
-        interfaz2()
+        interfaz_eleccion()
 
 
     # Función para iniciar sesión
