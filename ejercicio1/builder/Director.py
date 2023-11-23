@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     #pruebame el to_dict
 
-    pizza = to_dict("Pizza Barbacoa")
+    pizza = to_dict("Pizza Personalizada")
     print(pizza)
 
 

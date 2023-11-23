@@ -44,10 +44,38 @@ class Pizza_Component(Component):
             return ConstructorPizzaHawaiana()
         elif tipo_de_pizza == "Pizza Margherita":
             return ConstructorPizzaMargherita()
-        elif tipo_de_pizza == "Pizza Personalizada":
-            return ConstructorPizzaPersonalizada()
         elif tipo_de_pizza == "Pizza Infantil":
             return ConstructorPizzaInfantil()
+        else:
+            print("Tipo de pizza no reconocido")
+            return None
+    
+    def list_parts(self) -> None:
+        self.pizza.list_parts()
+
+class Pizza_Personalizada_Component(Component):
+    def __init__(self, pizza: str, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extras) -> None:
+        self.pizza = pizza
+        self.masa = masa
+        self.salsa_base = salsa_base
+        self.ingredientes = ingredientes
+        self.coccion = coccion
+        self.presentacion = presentacion
+        self.maridaje = maridaje
+        self.extras = extras
+        director = Director()
+        builder = self.tipo_de_pizza(self.pizza, self.masa, self.salsa_base, self.ingredientes, self.coccion, self.presentacion, self.maridaje, self.extras)
+        director.builder = builder
+        director.build()
+        self.pizza = builder.product
+        self.nombre = self.pizza.parts["Nombre"]
+
+    def decir_precio(self) -> float:
+        return self.pizza.parts["Precio"]
+
+    def tipo_de_pizza(self, tipo_de_pizza, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extras) -> str:
+        if tipo_de_pizza == "Pizza Personalizada":
+            return ConstructorPizzaPersonalizada()
         else:
             print("Tipo de pizza no reconocido")
             return None
