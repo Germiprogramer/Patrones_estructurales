@@ -54,8 +54,8 @@ class Pizza_Component(Component):
         self.pizza.list_parts()
 
 class Pizza_Personalizada_Component(Component):
-    def __init__(self, pizza: str, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extras) -> None:
-        self.pizza = pizza
+    def __init__(self, nombre, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extras) -> None:
+        self.nombre = nombre
         self.masa = masa
         self.salsa_base = salsa_base
         self.ingredientes = ingredientes
@@ -64,11 +64,11 @@ class Pizza_Personalizada_Component(Component):
         self.maridaje = maridaje
         self.extras = extras
         director = Director()
-        builder = self.tipo_de_pizza(self.pizza, self.masa, self.salsa_base, self.ingredientes, self.coccion, self.presentacion, self.maridaje, self.extras)
+        builder = ConstructorPizzaPersonalizada(self.nombre, self.masa, self.salsa_base, self.ingredientes, self.coccion, self.presentacion, self.maridaje, self.extras)
         director.builder = builder
         director.build()
         self.pizza = builder.product
-        self.nombre = self.pizza.parts["Nombre"]
+        
 
     def decir_precio(self) -> float:
         return self.pizza.parts["Precio"]

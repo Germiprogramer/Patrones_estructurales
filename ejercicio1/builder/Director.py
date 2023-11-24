@@ -29,7 +29,6 @@ class Director:
 
         
         def build(self) -> None:
-            self.builder.nombre()
             self.builder.masa()
             self.builder.salsa_base()
             self.builder.ingredientes()
