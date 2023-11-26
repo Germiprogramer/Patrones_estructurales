@@ -82,10 +82,10 @@ class Proxy(Component):
         else:
             return False
 
-    def registro_de_operaciones(self, operacion: str):
+    def registro_de_operaciones(self, operacion: str, nombre, tamanio, tipo, enlace):
         with open("ejercicio2/datos/registro_de_operaciones.csv", "a") as file:
             writer = csv.writer(file)
-            writer.writerow([operacion, datetime.now()])
+            writer.writerow([operacion, datetime.now(), nombre, tamanio, tipo, enlace])
 
     def acceso(self):
         password = input("Ingrese la contraseña: ")
@@ -97,7 +97,10 @@ class Proxy(Component):
     def operacion(self):
         #esto se debe sustituir en la interfaz grafica
         operacion = input("Ingrese la operación que desea realizar: ")
-        self.registro_de_operaciones(operacion)
+        nombre = None
+        tamanio = 0
+        tipo = "No aplica"
+        enlace = "No aplica"
         if operacion == "crear documento":
             nombre = input("Ingrese el nombre del documento: ")
             tamanio = float(input("Ingrese el tamaño del documento: "))
@@ -126,6 +129,7 @@ class Proxy(Component):
             self.acceder_a_carpeta(nombre)
         else:
             print("Operación no válida")
+        self.registro_de_operaciones(operacion, nombre, tamanio, tipo, enlace)
     
     def crear_documento(self, nombre: str, tamanio: float, tipo: str):
         self.carpeta.add_component(Documento_Component(nombre, tamanio, tipo))
