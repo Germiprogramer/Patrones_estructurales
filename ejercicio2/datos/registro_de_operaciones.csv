@@ -1,3 +1,5 @@
 operacion,fecha,nombre,tamanio,tipo,enlace
 crear documento,2023-11-26 20:40:50.931821,documento1,20.0,pdf,No aplica
+crear enlace,2023-11-26 20:49:59.968971,enlace1,0,No aplica,enlace.http
+buscar,2023-11-26 21:33:43.437324,enlace1,0,No aplica,No aplica
 
