@@ -71,8 +71,10 @@ class Carpeta(Component):
 
 class Proxy(Component):
     def __init__(self, carpeta: Carpeta) -> None:
-        
+
         self.carpeta = carpeta
+        self.contrasenia = "admin"
+        self.acceso()
 
     def chequeo_de_contraseña(self, password: str):
         if password == "admin":
@@ -85,11 +87,45 @@ class Proxy(Component):
             writer = csv.writer(file)
             writer.writerow([operacion, datetime.now()])
 
-    def operacion(self, password: str):
-        if password == "admin":
-            self.carpeta.operacion()
+    def acceso(self):
+        password = input("Ingrese la contraseña: ")
+        if password == self.contrasenia:
+            self.operacion()
         else:
             print("Contraseña incorrecta")
+
+    def operacion(self):
+        #esto se debe sustituir en la interfaz grafica
+        operacion = input("Ingrese la operación que desea realizar: ")
+        self.registro_de_operaciones(operacion)
+        if operacion == "crear documento":
+            nombre = input("Ingrese el nombre del documento: ")
+            tamanio = float(input("Ingrese el tamaño del documento: "))
+            tipo = input("Ingrese el tipo del documento: ")
+            self.crear_documento(nombre, tamanio, tipo)
+        elif operacion == "crear enlace":
+            nombre = input("Ingrese el nombre del enlace: ")
+            tamanio = float(input("Ingrese el tamaño del enlace: "))
+            enlace = input("Ingrese el enlace: ")
+            self.crear_enlace(nombre, tamanio, enlace)
+        elif operacion == "crear carpeta":
+            nombre = input("Ingrese el nombre de la carpeta: ")
+            self.crear_carpeta(nombre)
+        elif operacion == "eliminar":
+            nombre = input("Ingrese el nombre del componente que desea eliminar: ")
+            self.eliminar(nombre)
+        elif operacion == "buscar":
+            nombre = input("Ingrese el nombre del componente que desea buscar: ")
+            self.buscar(nombre)
+        elif operacion == "modificar":
+            nombre = input("Ingrese el nombre del componente que desea modificar: ")
+            nuevo_nombre = input("Ingrese el nuevo nombre del componente: ")
+            self.modificar(nombre, nuevo_nombre)
+        elif operacion == "acceder":
+            nombre = input("Ingrese el nombre de la carpeta a la que desea acceder: ")
+            self.acceder_a_carpeta(nombre)
+        else:
+            print("Operación no válida")
     
     def crear_documento(self, nombre: str, tamanio: float, tipo: str):
         self.carpeta.add_component(Documento_Component(nombre, tamanio, tipo))
@@ -117,6 +153,18 @@ class Proxy(Component):
             if component.decir_nombre() == nombre:
                 component.nombre = nuevo_nombre
                 break
+    
+    def acceder_a_carpeta(self, nombre: str):
+        for component in self.carpeta.components:
+            print(component.decir_nombre())
+            if component.decir_nombre() == nombre:
+                
+                proxy = Proxy(component)
+                
+        
+            
+
+    
 
 
 if __name__ == "__main__":
@@ -127,5 +175,5 @@ if __name__ == "__main__":
     carpeta1.add_component(Documento_Component("Documento 3", 30, "docx"))
 
     proxy = Proxy(carpeta1)
-    proxy.operacion("admin")
+    
 
