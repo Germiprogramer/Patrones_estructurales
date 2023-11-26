@@ -30,7 +30,7 @@ class Pizza_Component(Component):
         director.builder = builder
         director.build()
         self.pizza = builder.product
-        self.nombre = self.pizza.parts["Nombre"]
+        self.nombre = pizza
 
     def decir_precio(self) -> float:
         return self.pizza.parts["Precio"]
