@@ -7,7 +7,7 @@ import csv
 from composite.documento import Documento_Component
 from composite.enlace import Enlace_Component
 
-
+# clase carpeta
 class Carpeta(Component):
     def __init__(self, nombre: str) -> None:
         self.nombre = nombre

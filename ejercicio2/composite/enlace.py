@@ -3,6 +3,7 @@ sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estr
 from abc import ABC, abstractmethod
 from componente import Component
 
+# clase enlace
 class Enlace_Component(Component):
     def __init__(self, nombre: str, tamanio: float, enlace: str) -> None:
         self.nombre = nombre

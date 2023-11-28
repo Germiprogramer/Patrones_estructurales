@@ -3,6 +3,7 @@ sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estr
 from abc import ABC, abstractmethod
 from componente import Component
 
+# clase documento
 class Documento_Component(Component):
     def __init__(self, nombre: str, tamanio: float, tipo: str) -> None:
         self.nombre = nombre
