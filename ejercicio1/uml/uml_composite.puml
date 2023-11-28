@@ -1,0 +1,57 @@
+@startuml
+
+class Component {
+    +decir_precio(): float
+}
+
+class Entrante_Component {
+    +decir_precio(): float
+}
+
+class Bebida_Component {
+    +decir_precio(): float
+}
+
+class Postre_Component {
+    +decir_precio(): float
+}
+
+class Pizza_Component {
+    +decir_precio(): float
+    +tipo_de_pizza(tipo_de_pizza): str
+}
+
+class CompositeMenu {
+    -code: int
+    -nombre: str
+    -discount: float
+    -components: List<Component>
+
+    +add_component(component: Component): void
+    +remove_component(component: Component): void
+    +decir_precio(): float
+    +get_last_id_pedido(): int
+    +to_csv(): void
+}
+
+class CompositeMenuCompuesto {
+    -code: int
+    -nombre: str
+    -discount: float
+    -components: List<Component>
+
+    +add_component(component: Component): void
+    +remove_component(component: Component): void
+    +decir_precio(): float
+    +get_last_id_pedido(): int
+    +to_csv(): void
+}
+
+Component <|-- Entrante_Component
+Component <|-- Bebida_Component
+Component <|-- Postre_Component
+Component <|-- Pizza_Component
+
+CompositeMenu <|-- CompositeMenuCompuesto
+
+@enduml
