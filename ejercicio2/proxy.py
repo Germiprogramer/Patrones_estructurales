@@ -74,7 +74,7 @@ class Proxy(Component):
         elif operacion == "acceder":
             nombre = input("Ingrese el nombre de la carpeta a la que desea acceder: ")
             self.acceder_a_carpeta(nombre)
-        elif operacion = "decir tamanio":
+        elif operacion == "decir tamanio":
             self.decir_tamanio()
         else:
             print("Operación no válida")

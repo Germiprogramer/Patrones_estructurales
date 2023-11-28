@@ -22,6 +22,7 @@ class Component(ABC):
     def decir_precio(self) -> float:
         pass
 
+# clase pizza
 class Pizza_Component(Component):
     def __init__(self, pizza: str) -> None:
         self.pizza = pizza
@@ -53,6 +54,7 @@ class Pizza_Component(Component):
     def list_parts(self) -> None:
         self.pizza.list_parts()
 
+# para cumplir con el principio de responsabilidad unica, se crea una clase para pizza personalizada
 class Pizza_Personalizada_Component(Component):
     def __init__(self, nombre, masa, salsa_base, ingredientes, coccion, presentacion, maridaje, extras) -> None:
         self.nombre = nombre
@@ -83,6 +85,7 @@ class Pizza_Personalizada_Component(Component):
     def list_parts(self) -> None:
         self.pizza.list_parts()
 
+# clase entrante
 class Entrante_Component(Component):
     def __init__(self, nombre: str, precio: float) -> None:
         self.nombre = nombre
@@ -91,6 +94,7 @@ class Entrante_Component(Component):
     def decir_precio(self) -> float:
         return self.precio
 
+# clase bebida
 class Bebida_Component(Component):
     def __init__(self, nombre: str, precio: float) -> None:
         self.nombre = nombre
@@ -99,6 +103,7 @@ class Bebida_Component(Component):
     def decir_precio(self) -> float:
         return self.precio
 
+# clase postre
 class Postre_Component(Component):
     def __init__(self, nombre: str, precio: float) -> None:
         self.nombre = nombre
