@@ -2,7 +2,7 @@ import tkinter as tk
 import csv
 from tkinter import messagebox
 import sys
-from interfaz_eleccion import interfaz_eleccion
+from interfaces.interfaz_eleccion import interfaz_eleccion
 
 sys.path.append(r"C:\Users\Germán Llorente\Desktop\germiprogramer\Patrones_estructurales\ejercicio1\datos")
 
@@ -81,5 +81,3 @@ def interfaz_registro():
 
     root.mainloop()
 
-if __name__ == "__main__":
-    interfaz_registro()

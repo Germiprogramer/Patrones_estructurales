@@ -1,20 +1,21 @@
-id_menu, nombre, descuento, pizza, entrante, bebida, postre, id_pedido
+id_menu,nombre,descuento,pizza,entrante,bebida,postre,id_pedido
 1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,1
 1,MENU_INFANTIL,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,2
 3,MENU_HAWAIANO,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piï¿½a,Tarta de Coco,3
 4,MENU_CUATRO_QUESOS,0.1,Pizza Cuatro Quesos,Ensalada de Queso,Vino Tinto,Tarta de Queso,4
-6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piña,Tarta de Coco,5
+6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piï¿½a,Tarta de Coco,5
 6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Margherita,Ensalada de Tomate,Vino Blanco,Tarta de Manzana,5
 7,MENU_CUATRO_QUESOS_MARGHERITA,0.1,Pizza Cuatro Quesos,Ensalada de Queso,Vino Tinto,Tarta de Queso,6
 7,MENU_CUATRO_QUESOS_MARGHERITA,0.1,Pizza Margherita,Ensalada de Tomate,Vino Blanco,Tarta de Manzana,6
-8,MENU_HAWAIANO_CUATRO_QUESOS,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piña,Tarta de Coco,7
+8,MENU_HAWAIANO_CUATRO_QUESOS,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piï¿½a,Tarta de Coco,7
 8,MENU_HAWAIANO_CUATRO_QUESOS,0.1,Pizza Cuatro Quesos,Ensalada de Queso,Vino Tinto,Tarta de Queso,7
 2,MENU_INFANTIL_COMPUESTO,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,8
 2,MENU_INFANTIL_COMPUESTO,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,8
-6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piña,Tarta de Coco,9
+6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piï¿½a,Tarta de Coco,9
 6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Margherita,Ensalada de Tomate,Vino Blanco,Tarta de Manzana,9
 2,MENU_INFANTIL_COMPUESTO,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,10
 2,MENU_INFANTIL_COMPUESTO,0.1,Pizza Infantil,Patatas fritas,Refresco,Helado,10
 1,MENU_PERSONALIZADO,0.1,Pizza Personalizada,Patatas fritas,Agua,Helado,11
-6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piña,Tarta de Coco,12
+6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Hawaiana,Ensalada de Frutas,Jugo de Piï¿½a,Tarta de Coco,12
 6,MENU_HAWAIANO_MARGHERITA,0.1,Pizza Margherita,Ensalada de Tomate,Vino Blanco,Tarta de Manzana,12
+4,MENU_CUATRO_QUESOS,0.1,Pizza Cuatro Quesos,Ensalada de Queso,Vino Tinto,Tarta de Queso,13
