@@ -4,31 +4,41 @@ import csv
 from composite.documento import Documento_Component
 from composite.enlace import Enlace_Component
 from composite.carpeta import Carpeta
+from usuario import Usuario
 
 class Proxy(Component):
     def __init__(self, carpeta: Carpeta) -> None:
 
         self.carpeta = carpeta
-        self.contrasenia = "admin"
         self.acceso()
 
-    def chequeo_de_contraseña(self, password: str):
-        if password == "admin":
-            return True
-        else:
-            return False
+    def acceso(self):
+        nombre = input("Ingrese el nombre de usuario: ")
+        # buscame el usuario en la base de datos usuario en funcion de su nombre
+        with open("ejercicio2/datos/usuarios.csv", newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if 'contrasenia' in row and row['nombre'] == nombre:
+                    contrasenia = row['contrasenia']
+                    entrada_contrasenia = input("Ingrese la contraseña: ")
+                    if contrasenia == entrada_contrasenia:
+                        print("Contraseña correcta")
+                        self.operacion()
+                    else:
+                        print("Contraseña incorrecta")
+                        self.acceso()
+                else:
+                    print("Usuario no encontrado")
+                    self.acceso()
+
+        
+
 
     def registro_de_operaciones(self, operacion: str, nombre, tamanio, tipo, enlace):
         with open("ejercicio2/datos/registro_de_operaciones.csv", "a") as file:
             writer = csv.writer(file)
             writer.writerow([operacion, datetime.now(), nombre, tamanio, tipo, enlace])
 
-    def acceso(self):
-        password = input("Ingrese la contraseña: ")
-        if password == self.contrasenia:
-            self.operacion()
-        else:
-            print("Contraseña incorrecta")
 
     def operacion(self):
         #esto se debe sustituir en la interfaz grafica

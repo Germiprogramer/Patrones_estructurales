@@ -1,0 +1,52 @@
+@startuml
+
+abstract class Component {
+    {abstract} +operacion()
+}
+
+class Documento_Component {
+    -nombre: str
+    -tamanio: float
+    -tipo: str
+    -contenido: Any
+    +decir_tamanio(): float
+    +decir_nombre(): str
+    +operacion()
+}
+
+class Enlace_Component {
+    -nombre: str
+    -tamanio: float
+    -enlace: str
+    +decir_tamanio(): float
+    +decir_nombre(): str
+    +operacion()
+}
+
+class Carpeta {
+    -nombre: str
+    -components: list[Component]
+    -tamanio: float
+    +decir_tamanio(): float
+    +decir_nombre(): str
+    +operacion()
+    +add_component(component: Component): None
+    +remove_component(component: Component): None
+    +list_components(): None
+    +modificar(nombre: str, tamanio: float): None
+    +acceder_a_carpeta(nombre: str): None
+    +reconstruccion(): None
+}
+
+class Proxy {
+    -carpeta: Carpeta
+    +acceso(): None
+}
+
+Component <|-- Documento_Component
+Component <|-- Enlace_Component
+Component <|-- Carpeta
+
+Carpeta *-- Component : components
+
+@enduml
