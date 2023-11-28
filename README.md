@@ -39,6 +39,30 @@ Además de la justificación del uso del patrón, me gustaría resaltar el uso d
 ### SAMUR
 
 
+En el ejercicio anterior, se utiliza el patrón Proxy para controlar el acceso a la carpeta, agregando una capa adicional de indirección entre el cliente y la carpeta real. Aquí hay algunas justificaciones para el uso del patrón Proxy en ese contexto:
 
+**Control de Acceso:**
 
+El Proxy actúa como una barrera de acceso a la carpeta real. Antes de permitir el acceso a la carpeta, el Proxy solicita al usuario sus credenciales (nombre de usuario y contraseña). Esto proporciona una capa de seguridad y control de acceso.
 
+**Registro de Operaciones:**
+
+El Proxy registra las operaciones realizadas en la carpeta en un archivo CSV. Esto permite llevar un registro de todas las acciones realizadas por los usuarios. El Proxy se encarga de esta funcionalidad sin afectar directamente a la carpeta real.
+
+**Reconstrucción desde el Registro:**
+
+El Proxy utiliza la información almacenada en el archivo de registro para reconstruir la estructura de la carpeta. Esta capacidad de reconstrucción es útil en situaciones en las que la aplicación se reinicia o si se desea restaurar el estado anterior.
+
+**Interfaz Uniforme:**
+
+El Proxy implementa la misma interfaz que la carpeta real, permitiendo que el cliente interactúe con el Proxy de la misma manera que lo haría con la carpeta real. Esto proporciona una interfaz uniforme, independientemente de si se está utilizando el Proxy o la carpeta real.
+
+**Encapsulación de la Complejidad:**
+
+El Proxy encapsula la complejidad asociada con la autenticación, registro y reconstrucción de operaciones. El cliente no necesita preocuparse por estas responsabilidades; simplemente interactúa con el Proxy de la misma manera que interactuaría con la carpeta real.
+
+**Adaptación de Funcionalidades:**
+
+En el futuro, se podrían agregar más funcionalidades al Proxy, como el encriptado de datos, control de acceso basado en roles u otras mejoras de seguridad, sin modificar directamente la carpeta real ni afectar al cliente.
+
+En resumen, el uso del patrón Proxy en este ejercicio proporciona una capa intermedia que ofrece control de acceso, registro de operaciones y la capacidad de reconstruir la estructura de la carpeta desde un archivo de registro. Además, facilita la posible incorporación de características adicionales sin afectar directamente la lógica de la carpeta real.
