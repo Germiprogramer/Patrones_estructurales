@@ -7,10 +7,11 @@ import csv
 from composite.documento import Documento_Component
 from composite.enlace import Enlace_Component
 
-# clase carpeta
+# Clase Carpeta que implementa la interfaz Component
 class Carpeta(Component):
     def __init__(self, nombre: str) -> None:
         self.nombre = nombre
+        # Lista para almacenar componentes dentro de la carpeta
         self.components = []
         self.tamanio = 0
     
@@ -45,12 +46,13 @@ class Carpeta(Component):
                 break
 
     def acceder_a_carpeta(self, nombre: str):
-        #haz que se pueda acceder a una carpeta y que la carpeta que se acceda sea la carpeta cima
         for component in self.components:
             if component.decir_nombre() == nombre:
                 
                 proxy = Proxy(component)
-
+    
+     
+    # reconstuye la carpeta a partir de un registro de operaciones en un archivo csv
     def reconstruccion(self):
         with open("ejercicio2/datos/registro_de_operaciones.csv", 'r') as file:
             reader = csv.DictReader(file)
