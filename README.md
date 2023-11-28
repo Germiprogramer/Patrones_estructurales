@@ -1,10 +1,10 @@
 # Patrones_estructurales
 
-Germán Llorente
+**Germán Llorente**
 
 El link al repositorio es el siguiente: https://github.com/Germiprogramer/Patrones_estructurales.git
 
-### Pizzeria
+<h1>Pizzeria</h1> 
 
 En el ejercicio de la entrega pasada, se decidió emplear el patrón builder para la elaboración de las pizzas, debido a que este patrón habilita declarar subpartes de un elemento e ir indicándolas. Esto era perfecto para una pizza con distintos ingredientes. 
 
@@ -36,7 +36,7 @@ ________________________________________________________________________________
 
 Además de la justificación del uso del patrón, me gustaría resaltar el uso de las interfaces gráficas que se han elegido, dado que lo que creo que le da un toque extra a mi resolución del ejercicio es la conexión de interfaces en función de las conexiones del usuario. Para próximos ejercicios se intentará realizar en frameworks como Django o Flask, pero en este he preferido optar por readaptar la versión anterior-
 
-### SAMUR
+<h1>SAMUR</h1>
 
 
 En el ejercicio anterior, se utiliza el patrón Proxy para controlar el acceso a la carpeta, agregando una capa adicional de indirección entre el cliente y la carpeta real. Aquí hay algunas justificaciones para el uso del patrón Proxy en ese contexto:
@@ -65,4 +65,6 @@ El Proxy encapsula la complejidad asociada con la autenticación, registro y rec
 
 En el futuro, se podrían agregar más funcionalidades al Proxy, como el encriptado de datos, control de acceso basado en roles u otras mejoras de seguridad, sin modificar directamente la carpeta real ni afectar al cliente.
 
-En resumen, el uso del patrón Proxy en este ejercicio proporciona una capa intermedia que ofrece control de acceso, registro de operaciones y la capacidad de reconstruir la estructura de la carpeta desde un archivo de registro. Además, facilita la posible incorporación de características adicionales sin afectar directamente la lógica de la carpeta real.
+En resumen, el uso del patrón Proxy en este ejercicio proporciona una capa intermedia que ofrece control de acceso, registro de operaciones y la capacidad de reconstruir la estructura de la carpeta original desde un archivo de registro. Además, facilita la posible incorporación de características adicionales sin afectar directamente la lógica de la carpeta real. 
+
+En este ejercicio me hubiera gustado usar un framework para APIs, y al principio lo plantee con flask, pero como estuve un tiempo atascado con el planteamiento del ejercicio no terminé de ser capaz de readaptar el código para el html
